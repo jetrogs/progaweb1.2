@@ -1,0 +1,101 @@
+/* Reset de estilos */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+}
+
+/* Estilos del header */
+header {
+	background-color: #333;
+	color: white;
+	text-align: center;
+	padding: 20px 0;
+}
+
+#logo {
+	float: left;
+}
+
+/* Estilos de la barra de navegación */
+nav ul {
+	list-style-type: none;
+	background-color: #ffc0cb; /* Rosa claro */
+	overflow: hidden;
+	width: 100%;
+}
+
+	nav ul a {
+		text-decoration: none;
+	}
+
+	nav ul li {
+		float: left;
+	}
+
+		nav ul li.menu {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			transition: background-color 0.3s;
+		}
+
+			nav ul li.menu:hover {
+				background-color: #ff69b4; /* Rosa más oscuro al pasar el mouse */
+			}
+
+/* Estilos del artículo y el formulario */
+.seccion {
+	display: flex;
+}
+
+.articulo {
+	width: 50%;
+	padding: 20px;
+	text-align: justify;
+}
+
+#der {
+	flex: 1; /* Ocupa el espacio restante */
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+	#der h1 {
+		text-align: center;
+	}
+
+	#der form {
+		margin-top: 20px;
+		max-width: 300px; /* Anchura máxima del formulario */
+		margin-left: auto; /* Centra horizontalmente el formulario */
+		margin-right: auto; /* Centra horizontalmente el formulario */
+	}
+
+	#der input[type="text"],
+	#der input[type="password"],
+	#der input[type="submit"] {
+		margin-bottom: 10px;
+		width: 100%;
+	}
+
+.Pie {
+	width: auto;
+	border: 5px solid pink;
+	text-align: center;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background-color: pink;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem;
+}
