@@ -1,0 +1,13 @@
+body{
+	background-color: lightgreen;
+}
+#principal{
+	margin: 10px auto;
+	border: 5px solid gray;
+	padding: 15px;
+	border-radius: 10px solid yellow; 
+}
+input[type="button"] {
+	background-color: whitesmoke;
+	padding: 10px auto;
+}
