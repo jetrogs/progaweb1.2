@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Practica 4 Javascript</title>
+    <link rel="stylesheet" type="text/css" href="practica4_css.css">
+    <script type="text/javascript" src="practica4_js.js"></script>
+</head>
+<body>
+    <form name="formu" id="formu">
+        <label for="cadena" >Escribe tu nombre</label><br/>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre"><br/>
+        <label for="cadena2">Escribe tu apellido paterno</label><br/>
+        <input type="text" id="ap" name="ap" placeholder="Apellido paterno"><br/>
+        <label for="cadena2">Escribe tu apellido materno</label><br/>
+        <input type="text" id="am" name="am" placeholder="Apellido materno"><br/>
+
+        <label for="cadena2">Escribe tu año de nacimiento</label><br/>
+        <input type="text" id="anio" name="anio" placeholder="Año"><br/>
+
+        <label for="cadena2">Escribe tu mes de nacimiento</label><br/>
+        <input type="text" id="mes" name="mes" placeholder="Mes"><br/>
+        <label for="cadena2">Escribe tu día de nacimiento</label><br/>
+        <input type="text" id="dia" name="dia" placeholder="Dia"><br/>
+
+        <label for="resultado">Resultado</label><br/>
+        <input type="text" id="resultado" name="resultado" placeholder="Resultado"><br/>
+    </form><br/>
+    <input type="submit" value="Generar el RFC" onclick="genera_rfc()" id="rfc">
+</body>
+</html>
+

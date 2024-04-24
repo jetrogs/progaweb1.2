@@ -1,0 +1,16 @@
+input{
+	padding: 5px;
+	width: 400px;
+	height: 100%;
+	border-radius: 5px;
+}
+#rfc{
+	background: #8FC7DC; 
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+#rfc:hover{
+	background: #40B1DC;
+}
