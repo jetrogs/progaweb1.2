@@ -1,0 +1,38 @@
+.carousel {
+  position: relative; /* Establece la posición relativa para poder posicionar los botones absolutamente */
+  max-width: 600px; 
+  margin: auto; 
+  overflow: hidden; /* Oculta cualquier contenido que desborde el contenedor */
+}
+
+.carousel-content {
+  display: flex; /*Alinea las imágenes horizontalmente */
+}
+
+.carousel-content img {
+  width: 100%; /* Hace que las imágenes ocupen todo el ancho disponible del contenedor */
+  display: none; /* Inicialmente oculta todas las imágenes */
+}
+
+.carousel-content img.active {
+  display: block; 
+}
+
+button {
+  position: absolute; 
+  top: 50%; 
+  transform: translateY(-50%); /* Lo ajusta para que su centro vertical esté realmente en el centro */
+  background: rgba(0, 0, 0, 0.5); /*Color de fondo de los botones*/
+  color: white; 
+  border: none; 
+  padding: 10px; 
+  cursor: pointer; /* Cambia la forma del raton al pasar a traves del boton */
+}
+
+#prevBtn {
+  left: 0; /* Posiciona el botón a la izquierda */
+}
+
+#nextBtn {
+  right: 0; /* Posiciona el botón a la derecha */
+}
