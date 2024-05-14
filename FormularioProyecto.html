@@ -1,153 +1,142 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Obtener totales del formulario</title>
+    <title>Obtener totales del formulario</title>
     <link rel="stylesheet" href="FormularioProyecto.css">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
-	<script type="text/javascript" src="jspdf.js"></script>
-	<script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
-	<script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
-	<script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
-	<script type="text/javascript" src="jspdf.plugin.from_html.js"></script>	
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="jspdf.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>    
 </head>
 <script>
 var total;
-function califica()
-    {var total=0;
-    	//Evalua cada pregunta
-    	for (var x=1;x<=4;x++)
-    	{
-        var res=0;
-        var nom="r"+x;
-        var resul=document.getElementsByName(nom);
-        for(var i=0;i<resul.length;i++)
-        {
-            if(resul[i].checked==true)
-                res=parseInt(resul[i].value);
+function califica() {
+    var total = 0;
+    // Evalua cada pregunta
+    for (var x = 1; x <= 10; x++) {
+        var res = 0;
+        var nom = "r" + x;
+        var resul = document.getElementsByName(nom);
+        for (var i = 0; i < resul.length; i++) {
+            if (resul[i].checked == true)
+                res = parseInt(resul[i].value);
         }
-        total=total+res;
-        document.getElementById("total").innerHTML="Puntos obtenidos: "+total+" Puntos";
-        }
-        if(total==20)
-        	document.getElementById("comentario").innerHTML="EXCELENTE!!!";
-        else
-        	if(total==15)
-        	document.getElementById("comentario").innerHTML="Regular!!";
-        else
-        	if(total<=15)
-        	document.getElementById("comentario").innerHTML="Estudia un poco más";
+        total = total + res;
+        document.getElementById("total").innerHTML = "Puntos obtenidos: " + total + " Puntos";
     }
+    if (total == 50)
+        document.getElementById("comentario").innerHTML = "EXCELENTE!!!";
+    else
+        if (total == 30)
+            document.getElementById("comentario").innerHTML = "Regular!!";
+        else
+            if (total <= 30)
+                document.getElementById("comentario").innerHTML = "Estudia un poco más";
+}
 
  
-function generar(){
-
-//Crear un objeto o instancia jsPDF
-var doc = new jsPDF();
-
-//Definir el tamaño de la letra
-doc.setFontSize(40);
-//Color del texto
-doc.setTextColor(9,7,121);
-doc.text(40, 20, "Conceptos basicos");
-doc.setTextColor(17, 122, 209); //Color en formato RGB
-doc.setFontSize(30);
-doc.text(50, 35, "Resultados del test"); //Ubicación, Texto
-doc.setTextColor(0,0,0);
-doc.setFontSize(10);
-doc.text(20, 50, "20 puntos. Muy bien. \r Todas tus respuestas son correctas");
-doc.text(20, 70, "15 puntos. Regular. \r Obtuviste 2 preguntas correctas");
-doc.text(20, 90, "0 puntos. \r Todas tus respuestas son incorrectas");
-
-//doc.addImage(imgData, 'JPEG', 10, 40, 180, 180);
-
-var string = doc.output('datauristring');
-
-$('iframe').attr('src', string);
-
+function generar() {
+    // Crear un objeto o instancia jsPDF
+    var doc = new jsPDF();
+    // Definir el tamaño de la letra
+    doc.setFontSize(40);
+    // Color del texto
+    doc.setTextColor(9, 7, 121);
+    doc.text(40, 20, "Conceptos basicos");
+    doc.setTextColor(17, 122, 209); //Color en formato RGB
+    doc.setFontSize(30);
+    doc.text(50, 35, "Resultados del test"); //Ubicación, Texto
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(10);
+    doc.text(20, 50, "50 puntos. Muy bien. \r Todas tus respuestas son correctas");
+    doc.text(20, 70, "30 puntos. Regular. \r Obtuviste 2 preguntas correctas");
+    doc.text(20, 90, "0 puntos. \r Todas tus respuestas son incorrectas");
+    var string = doc.output('datauristring');
+    $('iframe').attr('src', string);
 }
 </script>
 
 <body>
-    <div id="contiene">
-	<h1>Responde la encuesta</h1>
-	<h2>Tu opinión es importante</h2>
-<div>
-	<form>
-	<ul>
+<div id="contiene">
+    <h1>Responde la encuesta</h1>
+    <h2>Tu opinión es importante</h2>
+    <div>
+        <form>
+            <ul>
+                <li>¿Qué es un gemelo digital?</li>
+                <input type="radio" name="r1" id="r1" value="5"/>A) Una réplica virtual de un objeto o sistema físico<br/>
+                <input type="radio" name="r1" id="r1" value="0"/>B) Un algoritmo de inteligencia artificial<br/>
+                <input type="radio" name="r1" id="r1" value="0"/>C) Un tipo de red informática<br/>
+                <input type="radio" name="r1" id="r1" value="0"/>D) Una tecnología de realidad aumentada<br/><br/>
+                
+                <li>¿En qué industria se utilizan ampliamente los gemelos digitales?</li>
+                <input type="radio" name="r2" id="r2" value="5"/>A) Manufactura e ingeniería<br/>
+                <input type="radio" name="r2" id="r2" value="0"/>B) Educación<br/>
+                <input type="radio" name="r2" id="r2" value="0"/>C) Publicidad<br/>
+                <input type="radio" name="r2" id="r2" value="0"/>D) Ventas minoristas<br/><br/>
 
-		<li>¿Qué es un gemelo digital?</li>
-		<input type="radio" name="r1" id="r1" value="5"/>A) Una réplica virtual de un objeto o sistema físico<br/>
-		<input type="radio" name="r1" id="r1" value="0"/>B) Un algoritmo de inteligencia artificial<br/>
-		<input type="radio" name="r1" id="r1" value="0"/>C) Un tipo de red informática<br/>
-		<input type="radio" name="r1" id="r1" value="0"/>D) Una tecnología de realidad aumentada<br/><br/>
-		
-		<li>¿En qué industria se utilizan ampliamente los gemelos digitales?</li>
-		<input type="radio" name="r2" id="r2" value="5"/>A) Manufactura e ingeniería<br/>
-		<input type="radio" name="r2" id="r2" value="0"/>B) Educación<br/>
-		<input type="radio" name="r2" id="r2" value="0"/>C) Publicidad<br/>
-		<input type="radio" name="r2" id="r2" value="0"/>D) Ventas minoristas<br/><br/>
+                <li>¿Cuál es el propósito principal de un gemelo digital?</li>
+                <input type="radio" name="r3" id="r3" value="5"/>A) Simular y analizar el rendimiento de un objeto o sistema en tiempo real<br/>
+                <input type="radio" name="r3" id="r3" value="0"/>B) Crear experiencias de realidad virtual para el entretenimiento<br/>
+                <input type="radio" name="r3" id="r3" value="0"/>C) Automatizar procesos industriales<br/>
+                <input type="radio" name="r3" id="r3" value="0"/>D) Optimizar redes de comunicaciones<br/><br/>
 
-		<li>¿Cuál es el propósito principal de un gemelo digital?</li>
-		<input type="radio" name="r3" id="r3" value="5"/>A) Simular y analizar el rendimiento de un objeto o sistema en tiempo real<br/>
-		<input type="radio" name="r3" id="r3" value="0"/>B) Crear experiencias de realidad virtual para el entretenimiento<br/>
-		<input type="radio" name="r3" id="r3" value="0"/>C) Automatizar procesos industriales<br/>
-		<input type="radio" name="r3" id="r3" value="0"/>D) Optimizar redes de comunicaciones<br/><br/>
+                <li>¿Qué tecnología es esencial para la creación de gemelos digitales?</li>
+                <input type="radio" name="r4" id="r4" value="5"/>A) Internet de las cosas (IoT)<br/>
+                <input type="radio" name="r4" id="r4" value="0"/>B) Realidad aumentada<br/>
+                <input type="radio" name="r4" id="r4" value="0"/>C) Blockchain<br/>
+                <input type="radio" name="r4" id="r4" value="0"/>D) Reconocimiento facial<br/><br/>
+                
+                <li>¿Qué es la convergencia digital?</li>
+                <input type="radio" name="r5" id="r5" value="5"/>A) La integración de diferentes tecnologías y servicios en una sola plataforma<br/>
+                <input type="radio" name="r5" id="r5" value="0"/>B) La fusión de dispositivos físicos y digitales<br/>
+                <input type="radio" name="r5" id="r5" value="0"/>C) El uso de inteligencia artificial para conectar datos<br/>
+                <input type="radio" name="r5" id="r5" value="0"/>D) La conexión de redes locales y globales<br/><br/>
 
-        <li>¿Qué tecnología es esencial para la creación de gemelos digitales?</li>
-		<input type="radio" name="r4" id="r4" value="5"/>A) Internet de las cosas (IoT)<br/>
-		<input type="radio" name="r4" id="r4" value="0"/>B) Realidad aumentada<br/>
-		<input type="radio" name="r4" id="r4" value="0"/>C) Blockchain<br/>
-		<input type="radio" name="r4" id="r4" value="0"/>D) Reconocimiento facial<br/><br/>
-		
-		<li>¿Qué es la convergencia digital?</li>
-		<input type="radio" name="r5" id="r5" value="5"/>A) La integración de diferentes tecnologías y servicios en una sola plataforma<br/>
-		<input type="radio" name="r5" id="r5" value="0"/>B) La fusión de dispositivos físicos y digitales<br/>
-		<input type="radio" name="r5" id="r5" value="0"/>C) El uso de inteligencia artificial para conectar datos<br/>
-		<input type="radio" name="r5" id="r5" value="0"/>D) La conexión de redes locales y globales<br/><br/>
+                <li>¿Qué es una aplicación típica de la convergencia digital?</li>
+                <input type="radio" name="r6" id="r6" value="5"/>A) Dispositivos inteligentes que combinan múltiples funciones<br/>
+                <input type="radio" name="r6" id="r6" value="0"/>B) Algoritmos de aprendizaje automático<br/>
+                <input type="radio" name="r6" id="r6" value="0"/>C) Aplicaciones de juegos en línea<br/>
+                <input type="radio" name="r6" id="r6" value="0"/>D) Programas de edición de video<br/><br/>
 
-		<li>¿Qué es una aplicación típica de la convergencia digital?</li>
-		<input type="radio" name="r6" id="r6" value="5"/>A) Dispositivos inteligentes que combinan múltiples funciones<br/>
-		<input type="radio" name="r6" id="r6" value="0"/>B) Algoritmos de aprendizaje automático<br/>
-		<input type="radio" name="r6" id="r6" value="0"/>C) Aplicaciones de juegos en línea<br/>
-		<input type="radio" name="r6" id="r6" value="0"/>D) Programas de edición de video<br/><br/>
+                <li>¿Qué beneficios ofrece la convergencia digital?</li>
+                <input type="radio" name="r7" id="r7" value="5"/>A) Integración de servicios y simplificación de procesos<br/>
+                <input type="radio" name="r7" id="r7" value="0"/>B) Mayor seguridad y privacidad<br/>
+                <input type="radio" name="r7" id="r7" value="0"/>C) Reducción de costos de hardware<br/>
+                <input type="radio" name="r7" id="r7" value="0"/>D) Mejora de las redes de comunicación<br/><br/>
 
-		<li>¿Qué beneficios ofrece la convergencia digital?</li>
-		<input type="radio" name="r7" id="r7" value="5"/>A) Integración de servicios y simplificación de procesos<br/>
-		<input type="radio" name="r7" id="r7" value="0"/>B) Mayor seguridad y privacidad<br/>
-		<input type="radio" name="r7" id="r7" value="0"/>C) Reducción de costos de hardware<br/>
-		<input type="radio" name="r7" id="r7" value="0"/>D) Mejora de las redes de comunicación<br/><br/>
+                <li>¿Cuál es un riesgo asociado con la convergencia digital?</li>
+                <input type="radio" name="r8" id="r8" value="5"/>A) Vulnerabilidades de seguridad y privacidad<br/>
+                <input type="radio" name="r8" id="r8" value="0"/>B) Disminución de la creatividad<br/>
+                <input type="radio" name="r8" id="r8" value="0"/>C) Mayor complejidad de los sistemas<br/>
+                <input type="radio" name="r8" id="r8" value="0"/>D) Disminución de la productividad<br/><br/>
 
-		<li>¿Cuál es un riesgo asociado con la convergencia digital?</li>
-		<input type="radio" name="r8" id="r8" value="5"/>A) Vulnerabilidades de seguridad y privacidad<br/>
-		<input type="radio" name="r8" id="r8" value="0"/>B) Disminución de la creatividad<br/>
-		<input type="radio" name="r8" id="r8" value="0"/>C) Mayor complejidad de los sistemas<br/>
-		<input type="radio" name="r8" id="r8" value="0"/>D) Disminución de la productividad<br/><br/>
-
-		<li>¿Cómo se relacionan los gemelos digitales con la convergencia digital?</li>
-		<input type="radio" name="r9" id="r9" value="5"/>A) Los gemelos digitales son parte de la convergencia digital al combinar datos físicos y digitales<br/>
-		<input type="radio" name="r9" id="r9" value="0"/>B) No tienen relación directa<br/>
-		<input type="radio" name="r9" id="r9" value="0"/>C) Los gemelos digitales se utilizan para converger redes informáticas<br/>
-		<input type="radio" name="r9" id="r9" value="0"/>D) Los gemelos digitales y la convergencia digital son términos sinónimos<br/><br/>
-		
-		<li>¿Qué sector podría beneficiarse más de la convergencia digital?</li>
-		<input type="radio" name="r10" id="r10" value="5"/>A) Tecnologías de la información y comunicaciones (TIC)<br/>
-		<input type="radio" name="r10" id="r10" value="0"/>B) Agricultura<br/>
-		<input type="radio" name="r10" id="r10" value="0"/>C) Educación<br/>
-		<input type="radio" name="r10" id="r10" value="0"/>D) Hostelería y turismo<br/><br/>
-
-	</ul>
-</form>
-</div>
-<input type="button" value="Calificar" onclick="califica()">
-<p></p>
-<p id="total">   </p>
-<p id="comentario">   </p>
-<input type="button" onclick="generar()" value="Ver resultados"/> <br/>
-<iframe frameborder="0" width="600" height="500"></iframe>
+                <li>¿Cómo se relacionan los gemelos digitales con la convergencia digital?</li>
+                <input type="radio" name="r9" id="r9" value="5"/>A) Los gemelos digitales son parte de la convergencia digital al combinar datos físicos y digitales<br/>
+                <input type="radio" name="r9" id="r9" value="0"/>B) No tienen relación directa<br/>
+                <input type="radio" name="r9" id="r9" value="0"/>C) Los gemelos digitales se utilizan para converger redes informáticas<br/>
+                <input type="radio" name="r9" id="r9" value="0"/>D) Los gemelos digitales y la convergencia digital son términos sinónimos<br/><br/>
+                
+                <li>¿Qué sector podría beneficiarse más de la convergencia digital?</li>
+                <input type="radio" name="r10" id="r10" value="5"/>A) Tecnologías de la información y comunicaciones (TIC)<br/>
+                <input type="radio" name="r10" id="r10" value="0"/>B) Agricultura<br/>
+                <input type="radio" name="r10" id="r10" value="0"/>C) Educación<br/>
+                <input type="radio" name="r10" id="r10" value="0"/>D) Hostelería y turismo<br/><br/>
+            </ul>
+        </form>
+    </div>
+    <input type="button" value="Calificar" onclick="califica()">
+    <p></p>
+    <p id="total">   </p>
+    <p id="comentario">   </p>
+    <input type="button" onclick="generar()" value="Ver resultados"/> <br/>
+    <iframe frameborder="0" width="100%" height="500" src="data:application/pdf;base64,JVBERi0xLjMKMyAwIG9iago8PC9UeXBlIC9QYWdlCi9QYXJlbnQgMSAwIFIKL1Jlc291cmNlcyAyIDAgUgovQ29udGVudHMgNCAwIFI+PgplbmRvYmoKNCAwIG9iago8PC9MZW5ndGggNTE2Pj4Kc3RyZWFtCjAuNTcgdwowIEcKQlQKL0YxIDQwIFRmCjQwIFRMCjAuMDM1IDAuMDI3IDAuNDc1IHJnCjExMy4zOSA3ODUuMjAgVGQKKENvbmNlcHRvcyBiYXNpY29zKSBUagpFVApCVAovRjEgMzAgVGYKMzAgVEwKMC4wNjcgMC40NzggMC44MjAgcmcKMTQxLjczIDc0Mi42OCBUZAooUmVzdWx0YWRvcyBkZWwgdGVzdCkgVGoKRVQKQlQKL0YxIDEwIFRmCjEwIFRMCjAuMDAwIGcKNTYuNjkgNzAwLjE2IFRkCigyMCBwdW50b3MuIE11eSBiaWVuLiApIFRqClQqICggVG9kYXMgdHVzIHJlc3B1ZXN0YXMgc29uIGNvcnJlY3RhcykgVGoKRVQKQlQKL0YxIDEwIFRmCjEwIFRMCjAuMDAwIGcKNTYuNjkgNjQzLjQ2IFRkCigxNSBwdW50b3MuIFJlZ3VsYXIuICkgVGoKVCogKCBPYnR1dmlzdGUgMiBwcmVndW50YXMgY29ycmVjdGFzKSBUagpFVApCVAovRjEgMTAgVGYKMTAgVEwKMC4wMDAgZwo1Ni42OSA1ODYuNzcgVGQKKDAgcHVudG9zLiApIFRqClQqICggVG9kYXMgdHVzIHJlc3B1ZXN0YXMgc29uIGluY29ycmVjdGFzKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCjEgMCBvYmoKPDwvVHlwZSAvUGFnZXMKL0tpZHMgWzMgMCBSIF0KL0NvdW50IDEKL01lZGlhQm94IFswIDAgNTk1LjI4IDg0MS44OV0KPj4KZW5kb2JqCjUgMCBvYmoKPDwvQmFzZUZvbnQvSGVsdmV0aWNhL1R5cGUvRm9udAovRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nCi9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjYgMCBvYmoKPDwvQmFzZUZvbnQvSGVsdmV0aWNhLUJvbGQvVHlwZS9Gb250Ci9FbmNvZGluZy9XaW5BbnNpRW5jb2RpbmcKL1N1YnR5cGUvVHlwZTE+PgplbmRvYmoKNyAwIG9iago8PC9CYXNlRm9udC9IZWx2ZXRpY2EtT2JsaXF1ZS9UeXBlL0ZvbnQKL0VuY29kaW5nL1dpbkFuc2lFbmNvZGluZwovU3VidHlwZS9UeXBlMT4+CmVuZG9iago4IDAgb2JqCjw8L0Jhc2VGb250L0hlbHZldGljYS1Cb2xkT2JsaXF1ZS9UeXBlL0ZvbnQKL0VuY29kaW5nL1dpbkFuc2lFbmNvZGluZwovU3VidHlwZS9UeXBlMT4+CmVuZG9iago5IDAgb2JqCjw8L0Jhc2VGb250L0NvdXJpZXIvVHlwZS9Gb250Ci9FbmNvZGluZy9XaW5BbnNpRW5jb2RpbmcKL1N1YnR5cGUvVHlwZTE+PgplbmRvYmoKMTAgMCBvYmoKPDwvQmFzZUZvbnQvQ291cmllci1Cb2xkL1R5cGUvRm9udAovRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nCi9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjExIDAgb2JqCjw8L0Jhc2VGb250L0NvdXJpZXItT2JsaXF1ZS9UeXBlL0ZvbnQKL0VuY29kaW5nL1dpbkFuc2lFbmNvZGluZwovU3VidHlwZS9UeXBlMT4+CmVuZG9iagoxMiAwIG9iago8PC9CYXNlRm9udC9Db3VyaWVyLUJvbGRPYmxpcXVlL1R5cGUvRm9udAovRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nCi9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjEzIDAgb2JqCjw8L0Jhc2VGb250L1RpbWVzLVJvbWFuL1R5cGUvRm9udAovRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nCi9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjE0IDAgb2JqCjw8L0Jhc2VGb250L1RpbWVzLUJvbGQvVHlwZS9Gb250Ci9FbmNvZGluZy9XaW5BbnNpRW5jb2RpbmcKL1N1YnR5cGUvVHlwZTE+PgplbmRvYmoKMTUgMCBvYmoKPDwvQmFzZUZvbnQvVGltZXMtSXRhbGljL1R5cGUvRm9udAovRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nCi9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjE2IDAgb2JqCjw8L0Jhc2VGb250L1RpbWVzLUJvbGRJdGFsaWMvVHlwZS9Gb250Ci9FbmNvZGluZy9XaW5BbnNpRW5jb2RpbmcKL1N1YnR5cGUvVHlwZTE+PgplbmRvYmoKMiAwIG9iago8PAovUHJvY1NldCBbL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSV0KL0ZvbnQgPDwKL0YxIDUgMCBSCi9GMiA2IDAgUgovRjMgNyAwIFIKL0Y0IDggMCBSCi9GNSA5IDAgUgovRjYgMTAgMCBSCi9GNyAxMSAwIFIKL0Y4IDEyIDAgUgovRjkgMTMgMCBSCi9GMTAgMTQgMCBSCi9GMTEgMTUgMCBSCi9GMTIgMTYgMCBSCj4+Ci9YT2JqZWN0IDw8Cj4+Cj4+CmVuZG9iagoxNyAwIG9iago8PAovUHJvZHVjZXIgKGpzUERGIDAuOS4wcmMyKQovQ3JlYXRpb25EYXRlIChEOjIwMjQwNTEzMjIyMzQyKQo+PgplbmRvYmoKMTggMCBvYmoKPDwKL1R5cGUgL0NhdGFsb2cKL1BhZ2VzIDEgMCBSCi9PcGVuQWN0aW9uIFszIDAgUiAvRml0SCBudWxsXQovUGFnZUxheW91dCAvT25lQ29sdW1uCj4+CmVuZG9iagp4cmVmCjAgMTkKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwNjUyIDAwMDAwIG4gCjAwMDAwMDE4ODEgMDAwMDAgbiAKMDAwMDAwMDAwOSAwMDAwMCBuIAowMDAwMDAwMDg3IDAwMDAwIG4gCjAwMDAwMDA3MzkgMDAwMDAgbiAKMDAwMDAwMDgyOSAwMDAwMCBuIAowMDAwMDAwOTI0IDAwMDAwIG4gCjAwMDAwMDEwMjIgMDAwMDAgbiAKMDAwMDAwMTEyNCAwMDAwMCBuIAowMDAwMDAxMjEyIDAwMDAwIG4gCjAwMDAwMDEzMDYgMDAwMDAgbiAKMDAwMDAwMTQwMyAwMDAwMCBuIAowMDAwMDAxNTA0IDAwMDAwIG4gCjAwMDAwMDE1OTcgMDAwMDAgbiAKMDAwMDAwMTY4OSAwMDAwMCBuIAowMDAwMDAxNzgzIDAwMDAwIG4gCjAwMDAwMDIxMDUgMDAwMDAgbiAKMDAwMDAwMjE4NyAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9TaXplIDE5Ci9Sb290IDE4IDAgUgovSW5mbyAxNyAwIFIKPj4Kc3RhcnR4cmVmCjIyOTEKJSVFT0Y="></iframe>
 </div>
 </body>
 </html>
