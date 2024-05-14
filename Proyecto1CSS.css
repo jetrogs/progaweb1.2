@@ -45,7 +45,7 @@ p{
     color: #99499B ;
 }
 #Alumno2{
-    color:#49729B ;
+    color:#272830 ;
 }
 .menu {
     display: inline-block;
@@ -103,6 +103,7 @@ td:hover{
 .linksderef{
     text-decoration: none;
     text-decoration-color: #A5B615;
+    color: #FF3758;
 }
 #ccuadro1{
     width: auto;
