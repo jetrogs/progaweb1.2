@@ -8,9 +8,9 @@
     <link rel="stylesheet" type="text/css" href="Proyecto1CSS.css">
     <style>
         main {
-            padding: 20px;
+            padding: 20px;/*Para darle un espaciado entre el cpntenedor blanco y el texto*/
         }
-        footer {
+        footer {/*Para darle un estilo al pie de pagina*/
             background-color: #50504db0;
             color: rgb(235, 231, 231);
             padding: 10px;
@@ -23,11 +23,63 @@
             justify-content: space-between;
             align-items: center;
         }
-        footer img {
+        footer img {/*Para que la imagen del pie de pagina se mantenga a la derecha y tenga un tamaño especifico*/
             max-width: 50px;
             margin-right: 10px;
         }
     </style>
+
+<!--Script de la grafica-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        // Cargar la biblioteca de visualización y el paquete 'corechart'
+        google.charts.load('current', {'packages':['corechart']});
+
+        // Establecer una función de devolución de llamada para dibujar el gráfico
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Función para configurar y dibujar el gráfico
+        function drawChart() {
+            // Datos del gráfico
+            var data = google.visualization.arrayToDataTable([
+                ['Aspecto', 'Porcentaje de Aumento', { role: 'style' }],
+                ['Adopción Generalizada', 85, '#3366cc'],      // Promedio del 80-90%
+                ['Mejora de Eficiencia y Productividad', 55, '#dc3912'],  // Promedio del 50-60%
+                ['Impacto en la Sociedad', 65, '#ff9900'],     // Promedio del 60-70%
+                ['Innovación Continua', 75, '#109618']        // Promedio del 70-80%
+            ]);
+
+            // Opciones de configuración del gráfico
+            var options = {
+                title: 'Proyecciones de la Convergencia Digital y Gemelos Digitales',
+                bar: {groupWidth: '75%'},
+                legend: { position: 'none' },
+                hAxis: {
+                    title: 'Aspecto',
+                },
+                vAxis: {
+                    title: 'Porcentaje de Aumento (%)',
+                    minValue: 0,
+                    maxValue: 100
+                }
+            };
+
+            // Crear el gráfico y dibujarlo en el contenedor
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+     <style>
+        /* Estilos para hacer el gráfico responsivo */
+        #chart_div {
+            width: 100%;
+            max-width: 600px ;/* Opcional: puedes establecer un ancho máximo */
+            margin: 0 auto; /* Para centrar el gráfico */
+            align-items: center;
+        }
+    </style>
+
+
 </head>
 <body class="background-color-animation">
 
@@ -41,23 +93,25 @@
         })();
     </script>
 
+    
     <header>
-        <div style="text-align: right;">
-            <!--Imagen logo-->
-            <img src="https://www.upslp.edu.mx/upslp/wp-content/themes/icemagtheme/images/demo/icemaglogo.png" width="125px" height="50px">
+        <br>
+        <div>
+            <img style="float: left;" src="https://www.eleconomista.com.mx/__export/1660696907176/sites/eleconomista/img/2022/08/16/transformacion_digital_negocio_depende_cinco_pasos.jpg_364214927.jpg" width="100px" height="50px">
+            <img style="float: right;" src="https://www.upslp.edu.mx/upslp/wp-content/themes/icemagtheme/images/demo/icemaglogo.png" width="125px" height="50px">
         </div>
-        <center>
-            <h1 style="color: #B04B4B">Convergencia digital y gemelos digitales</h1>
-        </center>
-        <div style="text-align: left;">
-            <img src="https://www.eleconomista.com.mx/__export/1660696907176/sites/eleconomista/img/2022/08/16/transformacion_digital_negocio_depende_cinco_pasos.jpg_364214927.jpg" width="100px" height="50px">
+        <div>
+            <h1 style="color: #B04B4B; text-align: center;">Convergencia digital y gemelos digitales</h1><!--Titulo de la pagina-->
         </div>
+
     </header>
+    <br>
 
     <!--Menu-->
     <nav>
         <a href="Img.html" class="menu">Imagenes</a>
-        <a href="" class="menu">Blog</a>
+        <a href="Interaccion.html" class="menu">Interaccion</a>
+        <a href="Blo.html" class="menu">Blog</a>
         <a href="FormularioProyecto.html" class="menu">Encuesta</a>
         <a href="Preguntas.html" class="menu">Preguntas</a>
     </nav>
@@ -89,7 +143,9 @@
                 <p align="justify">
                     Los gemelos digitales son una tecnología disruptiva que está revolucionando la industria y será fundamental para las fábricas 4.0. No obstante, su ámbito de aplicación es amplio y puede abarcar desde el análisis digital de una nave industrial hasta la simulación en 3D de un edificio de 8 siglos de historia como es la Catedral de León, para la que en Plain Concepts empleamos point cloud, robótica y el motor gráfico Evergine. La unión de todas estas tecnologías ofrece como resultado una visualización tridimensional de un edificio en muy poco tiempo y con una precisión extraordinaria.
                 </p>
-                <img style="border-radius: 15px;" src="https://rockwellautomation.scene7.com/is/image/rockwellautomationstage/at60digitaltwins-support-1276791730-848w477h.848.jpg" width="200px" height="150px">
+                <div class="imgshtml">
+                    <img style="border-radius: 15px;" src="https://rockwellautomation.scene7.com/is/image/rockwellautomationstage/at60digitaltwins-support-1276791730-848w477h.848.jpg" width="200px" height="150px">
+                </div>
             </section>
         </div>
     </div>
@@ -109,7 +165,7 @@
                         Según el informe «Digital Twins: Adding Intelligence to the Real World” del Instituto de Investigación Capgemini, el 60% de las organizaciones ya está utilizando esta tecnología de simulación y se espera que su uso aumente en un 36% en los próximos 5 años.
                     </p>
                 </div>
-                <div class="img_impacto">
+                <div class="imgshtml">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPTwIsGAOVp458HG_yNKGP43uNdjbsDI_l7A&usqp=CAU">
                 </div>
             </div>
@@ -159,7 +215,7 @@
             Los arquitectos combinan el modelado 3D con la tecnología de gemelos digitales para la planificación. En la fabricación, son útiles en diseño, planificación y mantenimiento, permitiendo supervisar el equipo y analizar datos de rendimiento. En el sector energético, apoyan la planificación de proyectos y optimización de activos.
             En la industria automotriz, se crean modelos digitales de vehículos para comprender su comportamiento físico y de software, y para el mantenimiento predictivo. En el ámbito de la salud, se utilizan para crear modelos virtuales de hospitales, instalaciones de salud y cuerpos humanos, permitiendo realizar simulaciones para comprender cómo responden los pacientes a determinados tratamientos.</p>
     
-            <div style="text-align: center;">
+            <div class="imgshtml">
                 <img style="border-radius: 10px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy9UPhHttQ0IPPaxkdHtr7UskfaAOveUvZwg&usqp=CAU">
             </div>
             <p>En la actualidad, la convergencia digital está avanzando hacia una fusión de Internet con los sistemas urbano-productivos. Lo anterior se observa en el desarrollo de soluciones tecnológicas que basadas en las TIC, buscan tener una mayor eficiencia en la gestión de servicios públicos urbanos, como el sistema de transporte y movilidad.
@@ -172,11 +228,15 @@
             <p> Los gemelos digitales se convertirán en algo común en los negocios y la sociedad para 2035. Eso afirma el Digital Twindex, preparado por TCS Futurists, en un estudio realizado con la técnica Delphi, para reducir el sesgo y llegar a un consenso en torno a preguntas tanto cuantitativas como cualitativas, y en el que participaron científicos, futuristas y expertos en la materia. Se les pidió que calificaran qué tan pronto la adopción generalizada de gemelos digitales ocurriría en todas las industrias y la sociedad en general y responder preguntas abiertas sobre el impacto y el riesgo de las tecnologías de gemelos digitales. El Digital Twindex ilustra por qué los gemelos digitales están siendo cada vez más interesantes.</p>
 
             <p id="te">Escuesta estadistica del aumento en un aproximado de 10 años sobre la implementacion de los gemelos digitales en la industria</p>
-            <img style="width: 700px; height: 400px; border-radius: 10px" src="https://media.es.wired.com/photos/647e8be588218b01bf4a1c96/master/w_1600,c_limit/TCS%20Twindex%20Infographic_small.png">
-
+            <div class="imgshtml">
+                <img style=" border-radius: 10px" src="https://media.es.wired.com/photos/647e8be588218b01bf4a1c96/master/w_1600,c_limit/TCS%20Twindex%20Infographic_small.png">
+            </div>
             <p>Según el estudio, el 90% de los encuestados cree que los gemelos digitales se adoptarán ampliamente en la atención sanitaria en los próximos seis años para crear planes de tratamiento personalizados, predecir resultados sanitarios, controlar enfermedades crónicas y agilizar el desarrollo de fármacos. El 53% de los encuestados prevé la adopción de gemelos digitales en movilidad en los próximos tres años para mejorar el rendimiento de los vehículos, optimizar los patrones de tráfico y mejorar la seguridad de los AV.<br>
                 <br>
                 <br>
+               <!--LLamara a l script de la grafica--> 
+                <div id="chart_div"></div>
+
 
             “Los gemelos digitales cambiarán la forma en que vivimos y trabajamos para 2035, con potencial para hacer que la humanidad sea más saludable y más eficaz en todo lo que hacemos”, explica Frank Diana, futurista de la compañía TCS. Según Diana, los gemelos digitales salvará vidas, humanas y animales. “El progreso de los gemelos digitales nos permite imaginar un mundo en el que las pruebas de nuevas tecnologías, procedimientos quirúrgicos, cosméticos y medicamentos para el cuerpo humano sucede enteramente en el ciberespacio. Nunca existirá el necesidad de volver a experimentar con un animal y, al mismo tiempo, investigar y los resultados ocurrirían a escalas y velocidades exponencialmente más altas que lo que es posible en el mundo real”, dice el futurista.</p>
 
@@ -214,25 +274,31 @@
             </ol>
         </div>
     </div>
-    <h4 style="color: black;"><b>Si tienes alguna otra duda de que es o como funcionan los gemelos digitales o la convergencia digital,  puedes visitar las siguientes redes sociales:</b></h4>
-    <nav style="background: none;" >
-        <a style="background-color: rgb(102, 102, 226);" href="https://www.facebook.com/profile.php?id=61550899782950" class="menu">facebook</a>
-        <a style="background-color: black;" href="http://www.condei.com.mx/" class="menu">Internet</a>
-        <a style="background-color: rgb(193, 3, 231);" href="https://www.instagram.com/explore/tags/gemelosdigitales/" class="menu">Instagram</a>
-        <a style="background-color: black;" href="https://axity.com/comunidad-axity/convergencia-digital-eje-que-garantiza-la-competitividad-en-una-organizacion/" class="menu">Internet</a>
-    </nav>
-    <h4>Bibliografia: </h4>
-    <b>
-    <a class="linksderef" href="https://www.atura.mx/blog/gemelos-digitales-y-convergencia-phygital#:~:text=Mientras%20que%20la%20convergencia%20phygital,an%C3%A1lisis%20y%20la%20optimizaci%C3%B3n%20en">Página 1</a><br />
-    <a class="linksderef" href="https://revistabyte.es/tendencias-tic/los-gemelos-digitales-metaverso/">Página 2</a><br>
-    <a class="linksderef" href="https://www.iberdrola.com/innovacion/gemelos-digitales">Pagina 3</a><br>
-    <a class="linksderef" href="https://axity.com/comunidad-axity/convergencia-digital-eje-que-garantiza-la-competitividad-en-una-organizacion/">Página 4</a><br>
-    <a class="linksderef" href="https://www.canalinstitucional.tv/te-interesa/convergencia-tecnologica-definicion-e-influencia-en-medios-de-comunicacion">Página 5</a><br>
-    <a class="linksderef" href="https://es.wired.com/articulos/gemelos-digitales-replicas-virtuales-de-objetos-fisicos-para-simular-predecir-y-mejorar-actividades-del-mundo-real">Estadisticas</a>
-    </b>
-    <h2>Alumnos</h2>
-    <p id="Alumno1"><b>Jetro Gamiz Sanchez - 183807</b></p>
-    <p id="Alumno2"><b>David Rocha González - 183468</b></p>
+
+    <!--Cuadro 4-->
+    <div id="ccuadro4">
+        <div id="cuadro4">
+            <h4 style="color: black;"><b>Si tienes alguna otra duda de que es o como funcionan los gemelos digitales o la convergencia digital,  puedes visitar las siguientes redes sociales:</b></h4>
+            <nav style="background: none;" >
+                <a style="background-color: rgb(102, 102, 226);" href="https://www.facebook.com/profile.php?id=61550899782950" class="menu">facebook</a>
+                <a style="background-color: black;" href="http://www.condei.com.mx/" class="menu">Internet</a>
+                <a style="background-color: rgb(193, 3, 231);" href="https://www.instagram.com/explore/tags/gemelosdigitales/" class="menu">Instagram</a>
+                <a style="background-color: black;" href="https://axity.com/comunidad-axity/convergencia-digital-eje-que-garantiza-la-competitividad-en-una-organizacion/" class="menu">Internet</a>
+            </nav>
+            <h4>Bibliografia: </h4>
+            <b>
+            <a class="linksderef" href="https://www.atura.mx/blog/gemelos-digitales-y-convergencia-phygital#:~:text=Mientras%20que%20la%20convergencia%20phygital,an%C3%A1lisis%20y%20la%20optimizaci%C3%B3n%20en">Página 1</a><br />
+            <a class="linksderef" href="https://revistabyte.es/tendencias-tic/los-gemelos-digitales-metaverso/">Página 2</a><br>
+            <a class="linksderef" href="https://www.iberdrola.com/innovacion/gemelos-digitales">Pagina 3</a><br>
+            <a class="linksderef" href="https://axity.com/comunidad-axity/convergencia-digital-eje-que-garantiza-la-competitividad-en-una-organizacion/">Página 4</a><br>
+            <a class="linksderef" href="https://www.canalinstitucional.tv/te-interesa/convergencia-tecnologica-definicion-e-influencia-en-medios-de-comunicacion">Página 5</a><br>
+            <a class="linksderef" href="https://es.wired.com/articulos/gemelos-digitales-replicas-virtuales-de-objetos-fisicos-para-simular-predecir-y-mejorar-actividades-del-mundo-real">Estadisticas</a>
+            </b>
+            <h2>Alumnos</h2>
+            <p id="Alumno1"><b>Jetro Gamiz Sanchez - 183807</b></p>
+            <p id="Alumno2"><b>David Rocha González - 183468</b></p>
+        </div>
+    </div>
     <br><br><br>
 
     <footer>
