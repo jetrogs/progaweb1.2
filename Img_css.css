@@ -1,55 +1,63 @@
+/* Estilos generales del cuerpo de la página */
 body {
-    background: #E591EF;
+    background: #E591EF; /* Color de fondo */
 }
 
+/* Estilos del contenedor principal */
 #conjunto {
-    padding: 5% 5% 5% 5%;
+    padding: 5% 5% 5% 5%; /* Espaciado interno */
     width: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centrado horizontal */
 }
 
+/* Estilos de los contenedores de memes, imágenes y videos */
 #div_memes,
 #div_imag,
 #div_video {
-    padding: 2%;
-    border: 2px solid black;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    width: 90%;
-    max-width: 600px;
-    background: white;
+    padding: 2%; /* Espaciado interno */
+    border: 2px solid black; /* Borde */
+    border-radius: 20px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Margen inferior */
+    width: 90%; /* Ancho */
+    max-width: 600px; /* Ancho máximo */
+    background: white; /* Color de fondo */
 }
 
+/* Estilos para títulos */
 h2 {
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    text-align: center; /* Alineación centrada */
+    font-family: 'Times New Roman', Times, serif; /* Fuente */
 }
 
+/* Estilos para imágenes de memes */
 .imgs {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ancho completo */
+    height: auto; /* Altura automática */
 }
 
+/* Estilos para imágenes */
 .imgi {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ancho completo */
+    height: auto; /* Altura automática */
 }
 
+/* Estilos para contenedor de videos */
 .video-container {
-    position: relative;
+    position: relative; /* Posición relativa */
     padding-bottom: 56.25%; /* Proporción del video (16:9) */
     height: 0;
-    overflow: hidden;
-    margin-bottom: 20px;
-    width: 100%;
+    overflow: hidden; /* Ocultar desbordamiento */
+    margin-bottom: 20px; /* Margen inferior */
+    width: 100%; /* Ancho completo */
 }
 
+/* Estilos para videos dentro del contenedor */
 .video-container iframe {
-    position: absolute;
+    position: absolute; /* Posición absoluta */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
 }
