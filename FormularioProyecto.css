@@ -19,7 +19,7 @@ body {
 
 /* Estilo para encabezados */
 h1 {
-    font-family: 'Charmonman', serif; /* Usar otra fuente para variedad */
+    font-family:Verdana, Geneva, Tahoma, sans-serif; /* Usar otra fuente para variedad */
     font-size: 2em; /* Tamaño grande para el h1 */
     color: #333; /* Color de texto */
     text-align: center; /* Centrar el texto */
@@ -29,6 +29,7 @@ h2 {
     font-size: 1.5em; /* Tamaño para el h2 */
     color: #666; /* Color de texto secundario */
     text-align: center; /* Centrar el texto */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Estilo para listas y elementos de entrada */
